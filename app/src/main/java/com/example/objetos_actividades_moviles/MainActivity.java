@@ -52,20 +52,15 @@ public class MainActivity extends AppCompatActivity {
         adap= new Adapter(this,model);
         lst=(ListView)findViewById(R.id.id_list);
         lst.setAdapter(adap);
-        lst.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        lst.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                try {
-                    Mascota m=(Mascota) adap.getItem(position);
-                    Log.e("nombre",m.getNombre());
-                }catch (Exception e){
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                try{
+                    Mascota mas= (Mascota) adap.getItem(position);
+                    Log.e("nombre",mas.getNombre());
+                }catch (Exception a){
 
                 }
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
             }
         });
 
